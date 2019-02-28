@@ -9,6 +9,9 @@ const app = express();
  //require to allow other port numer to make http calls
 app.use((req: any, res: any, next) => {
   res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  // this header is a fix for all type of verbs.  
+  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
   next();
 });
 
